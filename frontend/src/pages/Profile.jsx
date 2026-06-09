@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateProfileSuccess, logout } from '../store/slices/authSlice';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
@@ -40,7 +41,7 @@ const Profile = () => {
       const submitData = new FormData();
       submitData.append('profilePicture', file);
 
-      const response = await axios.put('http://localhost:5000/api/auth/profile', submitData, config);
+      const response = await axios.put(`${API_BASE_URL}/api/auth/profile`, submitData, config);
       dispatch(updateProfileSuccess(response.data));
       setMessage('Photo updated successfully!');
     } catch (error) {
@@ -51,7 +52,7 @@ const Profile = () => {
   };
 
   const defaultAvatar = "https://ui-avatars.com/api/?name=" + (user?.name || "User") + "&background=10b981&color=fff&size=150";
-  const avatarUrl = user?.profilePicture ? `http://localhost:5000${user.profilePicture}` : defaultAvatar;
+  const avatarUrl = user?.profilePicture ? `${API_BASE_URL}${user.profilePicture}` : defaultAvatar;
 
   return (
     <div className="animate-fade-in" style={{ marginTop: '2rem', maxWidth: '400px', margin: '2rem auto' }}>
