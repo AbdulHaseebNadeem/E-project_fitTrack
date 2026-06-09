@@ -11,6 +11,7 @@ const Home = () => {
       navigate('/login');
     }
   };
+  return (
     <div className="animate-fade-in" style={{ textAlign: 'center', marginTop: '4rem' }}>
       <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>
         Track Your Fitness Journey with <span style={{ color: 'var(--primary-color)' }}>Precision</span>
@@ -42,7 +43,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-
+  );
 };
 
 export default Home;
