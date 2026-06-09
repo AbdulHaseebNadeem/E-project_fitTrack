@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Production build directories
+dist/
+**/dist/
+
+# Env files
+.env
+**/.env
+.env*.local
+
+# Logs
+*.log
+logs/
+**/logs/
+
+# Uploads directory (ignore user uploaded profile pictures)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Editor/OS directories
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
